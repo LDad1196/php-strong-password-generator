@@ -5,19 +5,22 @@
     
     $array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
     
+    // Inizializza la variabile per la password generata
+    $generatedPassword = "";
+    
     // Verifica se è stata impostata la lunghezza della password e se è un numero valido
     if(isset($passwordLenght) && is_numeric($passwordLenght)) {
         // Genera la password con elementi casuali dall'array
         for ($i = 0; $i < $passwordLenght; $i++) {
             $randomKey = array_rand($array);
-            $password .= $array[$randomKey];
+            $generatedPassword .= $array[$randomKey];
         }
     } else {
-        $password = "Errore: Lunghezza della password non specificata o non valida.";
+        $generatedPassword = "Errore: Lunghezza della password non specificata o non valida.";
     }
     
-    // Stampa la password generata
-    echo $password;
+    // Concatena la parte iniziale della frase con la password generata
+    $password .= $generatedPassword;
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +33,8 @@
     <title>Generatore di Password</title>
 </head>
 <body>
-    <h1 class="text-center py-3"><?= $password ?></h1>
+    <div class="container">
+        <h1 class="text-center py-3"><?= $password ?></h1>
+    </div>
 </body>
 </html>
