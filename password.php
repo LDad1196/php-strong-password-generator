@@ -1,6 +1,10 @@
 <?php 
-    $password = "Ciao, quanto vuoi che sia lunga la tua password?";
+    $password = "La password generata è:";
+    $passwordLenght = $_GET["lunghezza"];
+    $array = ["x"];
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +15,14 @@
     <title>Password Generator</title>
 </head>
 <body>
-    <h1 class="text-center py-3">
-        <?= $password ?>
-    </h1>
+    <h1 class="text-center py-3"><?= $password ?></h1>
 
-    <form action="password.php" method="get" class="text-center py-3">
-        <input type="number" name="lunghezza" placeholder="Inserisci lunghezza password">
-        <button type="submit">Genera Password</button>
-    </form>
+    <h2 class="text-center py-3">
+        <?php 
+            for ($i = 0; $i <= $passwordLenght - 1; $i++) {
+                echo $array[0];
+            }
+        ?>
+    </h2>
 </body>
 </html>
